@@ -1,5 +1,5 @@
-class Solution(object):
-    def longestConsecutive(self, nums):
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
         temp = set(nums)
         ans = 0
         while len(temp)>0:
