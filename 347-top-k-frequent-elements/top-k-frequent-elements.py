@@ -3,7 +3,7 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         t=collections.Counter(nums)
         a=t.most_common(k)
-        b=[]
+        ans = []
         for i in a:
-            b.append(i[0])
-        return b
+            ans.append(i[0])
+        return ans
