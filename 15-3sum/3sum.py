@@ -9,11 +9,7 @@ class Solution:
             right = len(nums)-1
             while left < right:
                 result = num+nums[left]+nums[right]
-                if result>0:
-                    right-=1
-                elif result<0:
-                    left+=1
-                else:
+                if result==0:
                     res.add((num, nums[left],nums[right]))
                     left=left+1
                     right=right-1
@@ -21,5 +17,8 @@ class Solution:
                         left+=1
                     while left<right and nums[right]==nums[right+1]: ##Skippin duplicate of num3
                         right-=1
-
+                elif result>0:
+                    right-=1
+                elif result<0:
+                    left+=1
         return res
