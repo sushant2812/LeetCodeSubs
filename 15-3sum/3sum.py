@@ -8,7 +8,6 @@ class Solution:
             while left < right:
                 result = num+nums[left]+nums[right]
                 if result==0:
-                
                     res.add((num, nums[left],nums[right]))
                 if result>0:
                     right-=1
