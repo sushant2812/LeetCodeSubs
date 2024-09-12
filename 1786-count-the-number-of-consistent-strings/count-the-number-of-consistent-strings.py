@@ -3,9 +3,8 @@ class Solution:
         allowed = set(allowed)
         ans = 0
         for i in words:
-            word = set(i)
-            diff = word.difference(allowed)
-            if diff!=set():
-                continue
-            ans+=1
-        return ans
+            for j in i:
+                if j not in allowed:
+                    ans+=1
+                    break
+        return len(words)-ans
