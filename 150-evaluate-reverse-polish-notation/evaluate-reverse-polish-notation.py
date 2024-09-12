@@ -3,8 +3,8 @@ class Solution:
         res = []
         for token in tokens:
             if token=="+" or token=='-' or token=='*' or token=='/':
-                a = int(res.pop())
-                b = int(res.pop())
+                a = (res.pop())
+                b = (res.pop())
                 if token=='+':
                     res.append(a+b)
                 elif token=='-':
