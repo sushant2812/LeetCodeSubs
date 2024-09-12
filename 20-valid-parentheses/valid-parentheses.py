@@ -5,7 +5,7 @@ class Solution:
         for i in s:
             if i in '({[': ###  Appending opening brackets
                 stack.append(i)
-            elif stack and i in brackets and brackets[i]==stack[-1]:
+            elif stack and brackets[i]==stack[-1]:
                 stack.pop()
             else:
                 return False
