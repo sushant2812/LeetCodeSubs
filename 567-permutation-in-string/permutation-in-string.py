@@ -1,17 +1,17 @@
-import collections
+from collections import Counter
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        temp_0=collections.Counter(s1)
-        s3=list(s2[:len(s1)])
-        temp=collections.Counter(s3)
-        if(temp==temp_0):
-            return True
-        for i in range(len(s1),len(s2)):
-            s3.pop(0)
-            s3.append(s2[i])
-            temp=collections.Counter(s3)
-            if(temp==temp_0):
+        counter1 = Counter(s1)
+        length_s1 = len(s1)
+        counter2 = Counter(s2[:length_s1-1])
+        left = 0
+        for right in range(length_s1-1,len(s2)):
+            counter2[s2[right]]+=1
+            if counter2==counter1:
                 return True
-            else:
-                continue
+            counter2[s2[left]]-=1
+            print(counter2)
+            if counter2[s2[left]]==0:
+                del counter2[s2[left]]
+            left+=1
         return False
