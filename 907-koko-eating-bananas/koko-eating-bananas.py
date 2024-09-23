@@ -5,7 +5,7 @@ class Solution:
         res = max(piles)
         while left <= right:
             temp = (left+right)//2
-            hrs = sum(math.ceil(pile / temp) for pile in piles)
+            hrs = sum(ceil(pile / temp) for pile in piles)
             if hrs<=h:
                 res=min(res,temp)
                 right= temp-1
