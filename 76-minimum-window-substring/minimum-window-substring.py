@@ -8,7 +8,7 @@ class Solution:
         counter_temp = {}
         required_chars = len(counter_t)
         formed_chars = 0
-        for i in s:
+        for i in t:
             counter_temp[i]=0
 
         min_len = float('inf')
