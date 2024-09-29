@@ -5,18 +5,18 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
+    def maxDepth(self, root: Optional[TreeNode]) -> int:    
         count = 0
-        stack = [root]
-        while stack:
-            length = len(stack)
+        if not root:
+            return count
+        queue = [root]
+        while queue:
+            length=len(queue)
             for i in range(length):
-                node = stack.pop(0)
+                node = queue.pop(0)
                 if node.left:
-                    stack.append(node.left)
+                    queue.append(node.left)
                 if node.right:
-                    stack.append(node.right)
+                    queue.append(node.right)
             count+=1
         return count
