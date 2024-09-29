@@ -14,6 +14,7 @@ class Solution:
             return 1 + max(helper(root.left),helper(root.right))
         lh=helper(root.left)
         rh=helper(root.right)
-        if(abs(lh-rh)<=1 and self.isBalanced(root.left) and self.isBalanced(root.right)):
-            return True
+        if self.isBalanced(root.left) and self.isBalanced(root.right):
+            if(abs(lh-rh)<=1):
+                return True
         return False
