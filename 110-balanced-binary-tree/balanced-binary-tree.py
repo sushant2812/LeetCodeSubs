@@ -12,8 +12,8 @@ class Solution:
             if root==None:
                 return 0
             return 1 + max(helper(root.left),helper(root.right))
-        left_height = helper(root.left)
-        right_height = helper(root.right)
-        if(self.isBalanced(root.left) and self.isBalanced(root.right) and abs(left_height-right_height)<=1):
+        lh=helper(root.left)
+        rh=helper(root.right)
+        if(abs(lh-rh)<=1 and self.isBalanced(root.left) and self.isBalanced(root.right)):
             return True
         return False
