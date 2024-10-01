@@ -8,7 +8,7 @@ class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         ans = [0]
         def helper(root):
-            if(root==None):
+            if root==None:
                 return 0
             left = helper(root.left)
             right = helper(root.right)
