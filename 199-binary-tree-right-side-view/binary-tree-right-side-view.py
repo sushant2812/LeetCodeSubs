@@ -20,5 +20,4 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
             res.append(node.val)
-        print(res)
         return res
