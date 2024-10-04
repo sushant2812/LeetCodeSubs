@@ -3,10 +3,8 @@ class Solution:
         skill.sort()   
         left = 0
         right = len(skill)-1
-        strong = skill[right]
-        weak = skill[left]
-        match = weak+strong
-        res = weak*strong
+        match = skill[left]+skill[right]
+        res = skill[left]*skill[right]
         left = left+1
         right = right-1
         while left<right:
