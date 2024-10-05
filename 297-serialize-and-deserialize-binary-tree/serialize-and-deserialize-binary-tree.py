@@ -8,17 +8,21 @@
 class Codec:
 
     def serialize(self, root):
+        """Encodes a tree to a single string.
+        
+        :type root: TreeNode
+        :rtype: str
+        """
         res = []
         def dfs(node):
             if node is None:
-                res.append("null")
+                res.append('null')
                 return
             res.append(str(node.val))
             dfs(node.left)
             dfs(node.right)
         dfs(root)
         return ','.join(res)
-
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -27,13 +31,13 @@ class Codec:
         :rtype: TreeNode
         """
         nodes = data.split(',')
-        self.i = 0
+        self.var = 0
         def dfs():
-            if nodes[self.i]=='null':
-                self.i+=1
+            if nodes[self.var]=='null':
+                self.var += 1
                 return
-            node = TreeNode(int(nodes[self.i]))
-            self.i +=1
+            node = TreeNode(int(nodes[self.var]))
+            self.var +=1
             node.left = dfs()
             node.right = dfs()
             return node
