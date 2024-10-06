@@ -1,7 +1,7 @@
-class TrieNode:
+class TrieNode():
     def __init__(self):
         self.children = {}
-        self.isEnd = False
+        self.isWord = False
 
 
 class Trie:
@@ -15,7 +15,7 @@ class Trie:
             if letter not in current.children:
                 current.children[letter] = TrieNode()
             current = current.children[letter]
-        current.isEnd = True
+        current.isWord = True
 
     def search(self, word: str) -> bool:
         current = self.root
@@ -23,7 +23,8 @@ class Trie:
             if letter not in current.children:
                 return False
             current = current.children[letter]
-        return current.isEnd
+        return current.isWord
+
 
     def startsWith(self, prefix: str) -> bool:
         current = self.root
@@ -31,7 +32,7 @@ class Trie:
             if letter not in current.children:
                 return False
             current = current.children[letter]
-        return True
+        return True      
 
 
 # Your Trie object will be instantiated and called as such:
