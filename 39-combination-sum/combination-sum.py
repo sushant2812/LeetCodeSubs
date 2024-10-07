@@ -3,13 +3,11 @@ class Solution:
         res = []
         temp = []
         def dfs(idx):
-            total = sum(temp)
-            if total == target:
+            final = sum(temp)
+            if target==final:
                 res.append(temp.copy())
                 return
-            if total>target:
-                return
-            if idx>=len(candidates):
+            if final>target or idx>=len(candidates):
                 return
             temp.append(candidates[idx])
             dfs(idx)
