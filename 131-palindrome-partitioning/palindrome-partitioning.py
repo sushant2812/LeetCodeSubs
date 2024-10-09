@@ -1,7 +1,6 @@
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         def isPalindrome(substr):
-            print("SUBSTRING: ", substr)
             return substr == substr[::-1]
         res = []
         def backtrack(idx,path):
