@@ -1,14 +1,15 @@
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         def isPalindrome(substr):
+            print("SUBSTRING: ", substr)
             return substr == substr[::-1]
         res = []
-        def backtrack(start, path):
-            if start==len(s):
+        def backtrack(idx,path):
+            if idx>=len(s):
                 res.append(path.copy())
                 return
-            for end in range(start+1, len(s)+1):
-                if isPalindrome(s[start:end]):
-                    backtrack(end,path + [s[start:end]])
+            for end in range(idx+1,len(s)+1):
+                if isPalindrome(s[idx:end]):
+                    backtrack(end,path+[s[idx:end]])
         backtrack(0,[])
         return res
