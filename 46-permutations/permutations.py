@@ -7,12 +7,12 @@ class Solution:
             if len(nums)==len(subArray):
                 res.append(subArray.copy())
                 return
-            for key in counter.keys():
-                if counter[key]==0:
+            for num in nums:
+                if counter[num]==0:
                     continue
-                counter[key]-=1
-                backtrack(subArray + [key])
-                counter[key]+=1
+                counter[num]-=1
+                backtrack(subArray + [num])
+                counter[num]+=1
                 
         backtrack([])
         return res
