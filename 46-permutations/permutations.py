@@ -1,16 +1,18 @@
+from collections import Counter
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        superSet = []
-        def dfs(current,compare):
-            if len(current)==len(nums):
-                superSet.append(current.copy())
+        res = []
+        counter = Counter(nums)
+        def backtrack(subArray):
+            if len(nums)==len(subArray):
+                res.append(subArray.copy())
                 return
-            for i in range(len(nums)):
-                if nums[i] not in compare:
-                    current.append(nums[i])
-                    compare.add(nums[i])
-                    dfs(current,compare)
-                    current.pop()
-                    compare.remove(nums[i])
-        dfs([],set())
-        return superSet
+            for key in counter.keys():
+                if counter[key]==0:
+                    continue
+                counter[key]-=1
+                backtrack(subArray + [key])
+                counter[key]+=1
+                
+        backtrack([])
+        return res
