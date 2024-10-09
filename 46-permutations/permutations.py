@@ -6,9 +6,7 @@ class Solution:
                 superSet.append(current.copy())
                 return
             for i in range(len(nums)):
-                if nums[i] in compare:
-                    continue
-                else:
+                if nums[i] not in compare:
                     current.append(nums[i])
                     compare.add(nums[i])
                     dfs(current,compare)
