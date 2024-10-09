@@ -9,10 +9,9 @@ class Solution:
             if idx==len(digits):
                 output.append(''.join(combination))
                 return
-            else:
-                for letter in phone_map[digits[idx]]:
-                    combination.append(letter)
-                    backtrack(idx+1)
-                    combination.pop()
+            for char in phone_map[digits[idx]]:
+                combination.append(char)
+                backtrack(idx+1)
+                combination.pop()
         backtrack(0)
         return output
