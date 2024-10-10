@@ -9,11 +9,10 @@ class Solution:
             if idx>=len(s):
                 res.append(path.copy())
                 return
-            for j in range(idx,len(s)):
-                if isPalindrome(idx,j):
-                    path.append(s[idx:j+1])
-                    dfs(j+1)
+            for right in range(idx,len(s)):
+                if isPalindrome(idx,right):
+                    path.append(s[idx:right+1])
+                    dfs(right+1)
                     path.pop()
-
         dfs(0)
         return res
