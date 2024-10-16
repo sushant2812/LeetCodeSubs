@@ -1,6 +1,6 @@
 class Solution:
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
-        result = ''
+        result = []
         heap = []
 
         if a>0:
@@ -15,12 +15,12 @@ class Solution:
                 if not heap:
                     break
                 count2, char2 = heapq.heappop(heap)
-                result+=char2
+                result.append(char2)
                 if count2+1<0:
                     heapq.heappush(heap,(count2+1,char2))
                 heapq.heappush(heap,(count1,char1))
             else:
-                result+=char1
+                result.append(char1)
                 if count1+1<0:
                     heapq.heappush(heap,(count1+1,char1))
-        return result
+        return ''.join(result)
