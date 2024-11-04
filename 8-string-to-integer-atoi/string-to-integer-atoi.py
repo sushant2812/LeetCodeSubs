@@ -13,7 +13,6 @@ class Solution:
             index += 1
         elif s[0] == '+':
             index += 1
-
         while index<len(s) and s[index].isdigit():
             digit=ord(s[index])-ord('0')
             if res > (2**31 - 1 - digit) // 10:
