@@ -6,7 +6,7 @@ class Solution:
         while top<=bottom:
             row = (top+bottom)//2
             if target>matrix[row][-1]: ## Bigger than the last element of the row
-                top = row+1
+                top=row+1
             elif target<matrix[row][0]:
                 bottom=row-1
             else:
