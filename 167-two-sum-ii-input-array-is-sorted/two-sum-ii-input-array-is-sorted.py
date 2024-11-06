@@ -5,9 +5,9 @@ class Solution:
         while left<right:
             ans = numbers[left]+numbers[right]
             if ans==target:
-                return [left+1,right+1] ##since its a 1-indexed array
-            if ans>target:
+                return [left+1,right+1]
+            elif ans>target:
                 right-=1
             else:
                 left+=1
-        
+        return -1
