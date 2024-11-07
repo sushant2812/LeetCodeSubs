@@ -16,7 +16,7 @@ class Solution:
         while mid:
             temp = mid.next
             mid.next = prev
-            prev = mid
+            prev = mid 
             mid = temp
         first_half, second_half = head, prev
         while second_half:
