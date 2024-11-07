@@ -6,14 +6,14 @@ class MinStack:
 
     def push(self, val: int) -> None:
         self.stack.append(val)
-        if self.minstack:
+        if self.minstack!=[]:
             self.minstack.append(min(val,self.minstack[-1]))
-            return
-        self.minstack.append(val)
+        else:
+            self.minstack.append(val)
 
     def pop(self) -> None:
-        self.stack.pop()
         self.minstack.pop()
+        self.stack.pop()
 
     def top(self) -> int:
         return self.stack[-1]
