@@ -16,13 +16,14 @@ class Solution:
         while mid:
             temp = mid.next
             mid.next = prev
-            prev = mid 
+            prev = mid
             mid = temp
         first_half, second_half = head, prev
         while second_half:
             temp_1, temp_2 = first_half.next, second_half.next
             first_half.next = second_half
             second_half.next = temp_1
-            first_half, second_half = temp_1, temp_2
+            first_half, second_half = temp_1,temp_2
         return head
+        
 
