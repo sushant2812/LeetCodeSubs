@@ -4,13 +4,13 @@ class Solution:
         right = len(nums)-1
         ans = nums[0]
         while left<=right:
-            if nums[left]<nums[right]:
+            if nums[left]<nums[right]: ## Sorted array
                 ans = min(ans,nums[left])
                 return ans
             mid = (left+right)//2
             ans = min(nums[mid],ans)
             if nums[left]<=nums[mid]:
-                left=mid+1
+                left+=1
             else:
-                right=mid-1
+                right-=1
         return ans
