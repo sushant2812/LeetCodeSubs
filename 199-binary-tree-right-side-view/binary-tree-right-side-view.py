@@ -8,12 +8,12 @@ class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         res = []
         if root is None:
-            return []
-        queue = [root]
-        node = root
+            return res
+        queue = []
+        queue.append(root)
         while queue!=[]:
-            length = len(queue)
-            for i in range(length):
+            size=len(queue)
+            for i in range(size):
                 node = queue.pop(0)
                 if node.left:
                     queue.append(node.left)
