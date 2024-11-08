@@ -13,7 +13,7 @@ class Solution:
         queue.append(root)
         while queue!=[]:
             subnodes=[]
-            size=len(queue)
+            size = len(queue)
             for i in range(size):
                 node = queue.pop(0)
                 subnodes.append(node.val)
