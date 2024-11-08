@@ -7,13 +7,12 @@
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         ans=[]
-        queue=[]
-        while queue or root:
-            ## Traversing teh left subtree
+        stack=[]
+        while stack or root:
             while root:
-                queue.append(root)
+                stack.append(root)
                 root=root.left
-            root=queue.pop()
+            root=stack.pop()
             ans.append(root.val)
             root=root.right
         return ans
