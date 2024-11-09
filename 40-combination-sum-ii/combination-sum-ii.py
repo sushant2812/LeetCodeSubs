@@ -11,7 +11,7 @@ class Solution:
                 if i>idx and candidates[i]==candidates[i-1]:
                     continue
                 if candidates[i]>target:
-                    break
+                    return
                 temp.append(candidates[i])
                 dfs(i+1,target-candidates[i])
                 temp.pop()
