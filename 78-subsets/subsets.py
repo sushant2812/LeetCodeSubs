@@ -1,12 +1,13 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        powerSet=[]
-        subSet=[]
+        powerset=[]
+        subset=[]
         def dfs(idx):
-            powerSet.append(subSet.copy())
+            print(subset)
+            powerset.append(subset.copy())
             for i in range(idx,len(nums)):
-                subSet.append(nums[i])
+                subset.append(nums[i])
                 dfs(i+1)
-                subSet.pop()
+                subset.pop()
         dfs(0)
-        return powerSet
+        return powerset
