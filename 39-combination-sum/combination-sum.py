@@ -1,13 +1,13 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        res = []
-        temp = []
+        res=[]
+        temp=[]
         def dfs(idx):
-            final = sum(temp)
-            if target==final:
+            chk=sum(temp)
+            if chk==target:
                 res.append(temp.copy())
                 return
-            if final>target or idx>=len(candidates):
+            if idx>=len(candidates) or chk>target:
                 return
             temp.append(candidates[idx])
             dfs(idx)
