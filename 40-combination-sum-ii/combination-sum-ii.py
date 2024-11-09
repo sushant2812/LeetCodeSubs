@@ -1,14 +1,13 @@
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        res = []
-        temp = []
-        length = len(candidates)
+        temp=[]
+        res=[]
         candidates.sort()
         def dfs(idx,target):
             if target==0:
                 res.append(temp.copy())
                 return
-            for i in range(idx,length):
+            for i in range(idx,len(candidates)):
                 if i>idx and candidates[i]==candidates[i-1]:
                     continue
                 if candidates[i]>target:
