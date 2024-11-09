@@ -1,17 +1,18 @@
-from collections import Counter
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        res = []
-        counter = Counter(nums)
-        def dfs(temp):
+        res=[]
+        def dfs(temp,compare):
             if len(temp)==len(nums):
                 res.append(temp.copy())
                 return
-            for num in nums:
-                if counter[num]==0:
+            for i in range(len(nums)):
+                if nums[i] in compare:
                     continue
-                counter[num] -= 1
-                dfs(temp+[num])
-                counter[num] += 1
-        dfs([])
+                else:
+                    temp.append(nums[i])
+                    compare.add(nums[i])
+                    dfs(temp,compare)
+                    temp.remove(nums[i])
+                    compare.remove(nums[i])
+        dfs([],set())
         return res
