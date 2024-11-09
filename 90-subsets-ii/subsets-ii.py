@@ -5,6 +5,7 @@ class Solution:
         nums.sort()
         def dfs(idx):
             if idx>=len(nums):
+                print(subset)
                 powerset.append(subset.copy())
                 return
             subset.append(nums[idx])
