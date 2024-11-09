@@ -1,1 +1,1 @@
-<h2>kth-largest-element-in-an-array Notes</h2><hr>[ Time taken: 7 m 3 s ]
+<h2>kth-largest-element-in-an-array Notes</h2><hr>[ Time taken: 2 m 0 s ]
