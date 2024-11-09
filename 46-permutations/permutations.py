@@ -8,11 +8,10 @@ class Solution:
             for i in range(len(nums)):
                 if nums[i] in compare:
                     continue
-                else:
-                    temp.append(nums[i])
-                    compare.add(nums[i])
-                    dfs(temp,compare)
-                    temp.remove(nums[i])
-                    compare.remove(nums[i])
+                compare.add(nums[i])
+                temp.append(nums[i])
+                dfs(temp,compare)
+                compare.remove(nums[i])
+                temp.remove(nums[i])
         dfs([],set())
         return res
