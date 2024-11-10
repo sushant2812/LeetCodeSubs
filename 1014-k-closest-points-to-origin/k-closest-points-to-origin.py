@@ -1,14 +1,14 @@
 class Solution:
-    def originDistance(self,x1,y1):
-        return x1**2 + y1**2
+
 
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        distance = []
+        def distance(point):
+            return point[0]**2+point[1]**2
+        ans=[]
+        heap=[]
         for point in points:
-            temp = self.originDistance(point[0],point[1])
-            heapq.heappush(distance,(temp,point))
-        res = []
+            dist = distance(point)
+            heapq.heappush(heap,(dist,point))
         for i in range(k):
-            temp_distance, temp_point = heapq.heappop(distance)
-            res.append(temp_point)
-        return res
+            ans.append(heapq.heappop(heap)[1])
+        return ans
