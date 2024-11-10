@@ -9,11 +9,11 @@ class Solution:
         
         while heap or cooldown:
             if heap:
-                task= -heapq.heappop(heap)
+                task=-heapq.heappop(heap)
                 if task>1:
-                    cooldown.append((task-1,timer+n+1))
+                    cooldown.append((task-1,timer+1+n))
             timer+=1
             while cooldown and cooldown[0][1]==timer:
-                task_count, next_available = cooldown.pop(0)
+                task_count, temp = cooldown.pop(0)
                 heapq.heappush(heap,-task_count)
         return timer
