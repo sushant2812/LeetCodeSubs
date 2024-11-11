@@ -12,10 +12,10 @@ class Solution:
         if not node:
             return None
         nodes = {}
-        visited = set()
-        queue = [node]
+        visited =set()
+        queue= [node]
         while queue:
-            temp=queue.pop(0)
+            temp = queue.pop(0)
             if temp in visited:
                 continue
             visited.add(temp)
@@ -23,11 +23,11 @@ class Solution:
             for i in temp.neighbors:
                 nodes[temp.val].append(i.val)
                 queue.append(i)
-        copied_nodes={}
+        copied_nodes = {}
         for i in nodes:
-            copied_nodes[i] = Node(i)
+            copied_nodes[i]=Node(i)
         for i in nodes:
-            copied_nodes[i].neighbors = []
-            for neighbor in nodes[i]:
-                copied_nodes[i].neighbors.append(copied_nodes[neighbor])
+            copied_nodes[i].neighbors=[]
+            for j in nodes[i]:
+                copied_nodes[i].neighbors.append(copied_nodes[j])
         return copied_nodes[node.val]
