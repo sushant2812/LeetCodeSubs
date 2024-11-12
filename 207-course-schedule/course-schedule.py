@@ -5,21 +5,21 @@ class Solution:
             adjList[i]=[]
         for crs,pre in prerequisites:
             adjList[crs].append(pre)
-        visited = set()
-
+        visited=set()
         def dfs(crs):
             if crs in visited:
-                return False
+                return False ## Cycle is detected
             if adjList[crs]==[]:
-                return True
+                return True ##We can take that course
             visited.add(crs)
-            for i in adjList[crs]:
-                if not dfs(i): 
+            for prereqs in adjList[crs]:
+                if not dfs(prereqs):
                     return False
             visited.remove(crs)
             adjList[crs]=[]
             return True
-        for crs in range(numCourses):
-            if not dfs(crs):
+            
+        for i in range(numCourses):
+            if not dfs(i):
                 return False
         return True
