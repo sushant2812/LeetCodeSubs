@@ -5,14 +5,14 @@ class Solution:
             adjList[i]=[]
         for crs,pre in prerequisites:
             adjList[crs].append(pre)
-        visited=set()
-        cycle=set()
+        visited = set()
         res=[]
+        cycle = set()
         def dfs(crs):
-            if crs in cycle:
-                return False
             if crs in visited:
                 return True
+            if crs in cycle:
+                return False
             cycle.add(crs)
             for pre in adjList[crs]:
                 if not dfs(pre):
