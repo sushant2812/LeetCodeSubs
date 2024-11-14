@@ -1,9 +1,9 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         col = set()
-        posDiag= set()
+        posDiag = set()
         negDiag = set()
-        board = [['.']*n for i in range(n)]
+        board = [["."]*n for i in range(n)]
         res=[]
         def backtrack(r):
             if r==n:
