@@ -1,40 +1,20 @@
 class Solution:
-    def minimizedMaximum(self, n, quantities):
-        m = len(quantities)
+    def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
+        def canDistribute(max_products: int) -> bool:
+            # Calculate the number of stores needed for each product type
+            stores_needed = sum((quantity + max_products - 1) // max_products for quantity in quantities)
+            # Check if we can manage with `n` stores
+            return stores_needed <= n
 
-        # Create a list of tuples (-ratio, quantity, stores_assigned)
-        type_store_pairs = [(-q, q, 1) for q in quantities]
-
-        # Use heapq.heapify() to convert the list into a heap in O(m) time
-        heapq.heapify(type_store_pairs)
-
-        # Iterate over the remaining n - m stores
-        for _ in range(n - m):
-            # Pop the element with the maximum ratio (due to negative sign it's min-heap)
-            (
-                neg_ratio,
-                total_quantity_of_type,
-                stores_assigned_to_type,
-            ) = heapq.heappop(type_store_pairs)
-
-            # Calculate the new ratio after assigning one more store
-            new_stores_assigned_to_type = stores_assigned_to_type + 1
-            new_ratio = total_quantity_of_type / new_stores_assigned_to_type
-
-            # Push the updated pair back into the heap
-            heapq.heappush(
-                type_store_pairs,
-                (
-                    -new_ratio,
-                    total_quantity_of_type,
-                    new_stores_assigned_to_type,
-                ),
-            )
-
-        # Pop the first element to get the final ratio
-        _, total_quantity_of_type, stores_assigned_to_type = heapq.heappop(
-            type_store_pairs
-        )
-
-        # Return the maximum minimum ratio
-        return math.ceil(total_quantity_of_type / stores_assigned_to_type)
+        # Binary search range
+        left, right = 1, max(quantities)
+        
+        # Perform binary search
+        while left < right:
+            mid = (left + right) // 2
+            if canDistribute(mid):
+                right = mid  # Try for a smaller max
+            else:
+                left = mid + 1  # Increase max products per store
+        
+        return left
