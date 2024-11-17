@@ -1,15 +1,12 @@
-from collections import deque
-from typing import List
 
 class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
-        n = len(nums)
-        prefix = [0] * (n + 1)
-        
-        # Compute prefix sum
-        for i in range(n):
-            prefix[i + 1] = prefix[i] + nums[i]
-        
+        prefix=[]
+        prefix_sum=0
+        for i in range(len(nums)):
+            prefix.append(prefix_sum)
+            prefix_sum+=nums[i]
+        prefix.append(prefix_sum)
         dq = deque()  
         min_len = float('inf')
         
