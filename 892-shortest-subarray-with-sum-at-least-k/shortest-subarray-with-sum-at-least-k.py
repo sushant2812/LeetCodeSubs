@@ -7,6 +7,7 @@ class Solution:
             prefix.append(prefix_sum)
             prefix_sum+=nums[i]
         prefix.append(prefix_sum)
+        
         dq = deque()  
         min_len = float('inf')
         
