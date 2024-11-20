@@ -9,7 +9,6 @@ class Solution:
         while x!=0:
             digit=x%10
             final_num=final_num*10+digit
-            print(final_num)
             x=x//10
         final_num*=sign
         if final_num < INT_MIN or final_num > INT_MAX:
