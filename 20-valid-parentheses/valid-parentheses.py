@@ -4,7 +4,7 @@ class Solution:
         brackets={')':'(','}':'{',']':'['}
         hash=set(['(','{','['])
         for i in s:
-            if i in ['(','{','[']:
+            if i in hash:
                 stack.append(i)
             elif stack and brackets[i]==stack[-1]:
                 stack.pop()
