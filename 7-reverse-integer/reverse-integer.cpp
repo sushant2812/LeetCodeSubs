@@ -1,29 +1,17 @@
-#include <iostream>
-#include <climits>  // For INT_MIN and INT_MAX
-
 class Solution {
 public:
     int reverse(int x) {
-        int sign = 1;
-        if (x < 0) {
-            sign = -1;
-        }
-
-        int final = 0;
-        int digit;
+        int ans = 0; // Initialize the reversed number to 0
         while (x != 0) {
-            digit = x % 10;
-            // Check if reversing will cause overflow
-            if (final > INT_MAX / 10 || (final == INT_MAX / 10 && digit > 7)) {
-                return 0;  // Return 0 if overflow would occur
+            int digit = x % 10; 
+            
+            if ((ans > INT_MAX / 10) || (ans < INT_MIN / 10)) {
+                return 0; // Return 0 if reversing x would cause overflow/underflow
             }
-            if (final < INT_MIN / 10 || (final == INT_MIN / 10 && digit < -8)) {
-                return 0;  // Return 0 if overflow would occur
-            }
-            final = final * 10 + digit;
-            x = x / 10;
+            
+            ans = ans * 10 + digit; // Append the digit to the reversed number
+            x = x / 10; // Remove the last digit from x
         }
-        int num=final*sign;
-        return num*sign;
+        return ans; // Return the reversed number
     }
 };
