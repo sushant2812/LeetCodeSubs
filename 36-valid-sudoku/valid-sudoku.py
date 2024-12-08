@@ -1,26 +1,16 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         rows=collections.defaultdict(set)
-        columns=collections.defaultdict(set)
+        cols=collections.defaultdict(set)
         squares=collections.defaultdict(set)
         for row in range(9):
             for col in range(9):
-                
-                ## Checking for the presence of a non-unique number
-
-                if board[row][col]=='.':
+                number=board[row][col]
+                if number == '.':
                     continue
-                if board[row][col] in rows[row]:
+                if number in rows[row] or number in cols[col] or number in squares[(row//3,col//3)]:
                     return False
-                if board[row][col] in columns[col]:
-                    return False
-                if board[row][col] in squares[(row//3,col//3)]:
-                    return False
-                
-                ## Adding to the set
-
-                rows[row].add(board[row][col])
-                columns[col].add(board[row][col])
-                squares[(row//3,col//3)].add(board[row][col])
-
+                rows[row].add(number)
+                cols[col].add(number)
+                squares[(row//3,col//3)].add(number)
         return True
