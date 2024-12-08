@@ -1,14 +1,14 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        left = 0 
-        right = len(nums)-1
-        ans = nums[0]
+        left=0
+        right=len(nums)-1
+        ans=nums[0]
         while left<=right:
-            if nums[left]<nums[right]: ## Sorted array
-                ans = min(ans,nums[left])
+            if nums[left]<=nums[right]:
+                ans=min(ans,nums[left])
                 return ans
-            mid = (left+right)//2
-            ans = min(nums[mid],ans)
+            mid=(left+right)//2
+            ans=min(nums[mid],ans)
             if nums[left]<=nums[mid]:
                 left+=1
             else:
