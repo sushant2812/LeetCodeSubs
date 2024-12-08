@@ -1,12 +1,12 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        stack=[]
-        brackets={')':'(','}':'{',']':'['}
-        hash=set(['(','{','['])
+        stack = []
+        brack={')':'(','}':'{',']':'['}
+        hash=set(['{','(','['])
         for i in s:
             if i in hash:
                 stack.append(i)
-            elif stack and brackets[i]==stack[-1]:
+            elif stack and brack[i]==stack[-1]:
                 stack.pop()
             else:
                 return False
